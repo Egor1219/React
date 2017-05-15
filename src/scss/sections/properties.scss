@@ -1,0 +1,36 @@
+.properties {
+    position: absolute;
+    width: 1280px;
+    height: 700px;
+    left: 50%;
+    top: 48px;
+    z-index: 1;
+    transform: translate(-50%, 0);
+    pointer-events: none;
+
+    &__report{
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        color: #000;
+        cursor: pointer;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        transition: 0.3s;
+        border: 1px solid #ccc;
+        opacity: 0.7;
+        border-radius: 3px;
+        &:hover{
+            text-decoration: none;
+            opacity: 1;
+            border: 1px solid #000;
+        }
+    }
+}

@@ -1,0 +1,257 @@
+.topbar-wrap {
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.8);
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+
+    &__block-wrap {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    &__block {
+        cursor: pointer;
+        height: 38px;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        margin: 6px 5px 0 0;
+        padding: 0 25px 0 45px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background: transparent url($images-path + 'sprite.png') 0 0 no-repeat;
+        }
+
+        &_visibility {
+            &::before {
+                background-position: map_get($visibility_ico, position);
+                width: map_get($visibility_ico, width);
+                height: map_get($visibility_ico, height);
+                left: 11px;
+                top: 11px;
+            }
+        }
+
+        &_visibility-active {
+            &::before {
+                background-position: map_get($visibility_ico_active, position);
+            }
+        }
+
+        &_prop {
+            &::before {
+                background-position: map_get($filter_ico, position);
+                width: map_get($filter_ico, width);
+                height: map_get($filter_ico, height);
+                left: 14px;
+                top: 9px;
+            }
+        }
+
+        &_prop-active {
+            &::before {
+                background-position: map_get($filter_ico_active, position);
+            }
+        }
+
+        &_sort {
+            &::before {
+                background-position: map_get($sort_ico, position);
+                width: map_get($sort_ico, width);
+                height: map_get($sort_ico, height);
+                left: 13px;
+                top: 9px;
+            }
+        }
+
+        &_sort-active {
+            &::before {
+                background-position: map_get($sort_ico_active, position);
+            }
+        }
+
+        &_saved-search {
+            &::before {
+                background-position: map_get($box_ico, position);
+                width: map_get($box_ico, width);
+                height: map_get($box_ico, height);
+                left: 12px;
+                top: 6px;
+            }
+        }
+
+        &_saved-search-active {
+            &::before {
+                background-position: map_get($box_ico_active, position);
+                top: 8px;
+            }
+        }
+
+        &_heart {
+            padding: 0;
+            border: none;
+            width: map_get($heart_ico, width);
+            margin: 6px 3px 0 15px;
+
+            &::before {
+                background-position: map_get($heart_ico, position);
+                width: map_get($heart_ico, width);
+                height: map_get($heart_ico, height);
+                left: 0;
+                top: 10px;
+            }
+
+            &.topbar__block_opened {
+                background: none;
+            }
+        }
+
+        &_heart-active {
+            &::before {
+                background-position: map_get($heart_ico_active, position);
+            }
+        }
+
+        &_opened {
+            background: #9e0b0f;
+            border-color: #9e0b0f;
+
+            .topbar__block-title {
+                color: #fff;
+            }
+        }
+    }
+
+    &__block-title {
+        color: #000;
+        font-size: 14px;
+        display: inline-block;
+        margin: 8px 0 0;
+        letter-spacing: -.3px;
+        user-select: none;
+    }
+
+    &__ico {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        background: transparent url($images-path + 'sprite.png') 0 0 no-repeat;
+        cursor: pointer;
+        user-select: none;
+
+        &_search {
+            position: absolute;
+            top: 9px;
+            right: 10px;
+            background-position: map_get($search_ico, position);
+            width: map_get($search_ico, width);
+            height: map_get($search_ico, height);
+        }
+
+        &_share {
+            background-position: map_get($share_ico, position);
+            width: map_get($share_ico, width);
+            height: map_get($share_ico, height);
+            margin: 15px 0 0 6px;
+
+            &:hover {
+                background-position: map_get($share_ico-active, position);
+            }
+        }
+
+        &_print {
+            background-position: map_get($print_ico, position);
+            width: map_get($print_ico, width);
+            height: map_get($print_ico, height);
+            margin: 15px 0 0 9px;
+
+            &:hover {
+                background-position: map_get($print_ico-active, position);
+            }
+        }
+
+        &_bell {
+            background-position: map_get($bell_ico, position);
+            width: map_get($bell_ico, width);
+            height: map_get($bell_ico, height);
+            margin: 16px 8px 0 0;
+
+            &:hover {
+                background-position: map_get($bell_ico-active, position);
+            }
+        }
+
+        &_screen {
+            background-position: map_get($screen_ico, position);
+            width: map_get($screen_ico, width);
+            height: map_get($screen_ico, height);
+            margin: 16px 0 0;
+
+            &:hover {
+                background-position: map_get($screen_ico-active, position);
+            }
+        }
+
+        &_user {
+            position: absolute;
+            left: 8px;
+            top: 9px;
+            background-position: map_get($user_ico, position);
+            width: map_get($user_ico, width);
+            height: map_get($user_ico, height);
+
+            &:hover {
+                background-position: map_get($user_ico-active, position);
+            }
+        }
+    }
+
+    &__form {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        margin: 6px 4px 0 0;
+    }
+
+    &__search {
+        width: 220px;
+        height: 38px;
+        border-radius: 4px;
+        background: #e8e8e8;
+        color: #000;
+        border: 1px solid #e8e8e8;
+        font-size: 12px;
+        padding: 0 30px 2px 15px;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        @include placeholder() {
+            opacity: 1;
+            color: #000;
+        }
+
+        &:focus {
+            background: #fff;
+            border-color: #ffcd00;
+        }
+    }
+
+    &__user {
+        position: relative;
+        display: inline-block;
+        background: #D8D8D8;
+        width: 55px;
+        height: 36px;
+        border-radius: 20px 0 0 20px;
+        margin: 7px 0 0;
+    }
+}

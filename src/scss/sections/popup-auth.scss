@@ -1,0 +1,200 @@
+.popup-auth {
+    display: none;
+    position: fixed;
+    width: 468px;
+    height: 366px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index: 200;
+
+    &__checkbox{
+        cursor: pointer;
+        .fa-square-o{
+            display: inline-block;
+        }
+        .fa-check-square-o{
+            display: none;
+        }
+        &_checked{
+            .fa-square-o{
+                display: none;
+            }
+            .fa-check-square-o{
+                display: inline-block;
+            }
+        }
+        i{
+            margin-right: 6px;
+            width: 16px;
+            font-size: 17px;
+        }
+    }
+
+    &__alert{
+        font-size: 15px;
+        font-weight: 400;
+        color: #9e0b0f;
+        margin: 5px 0px 0px 0px;
+        height: 20px;
+    }
+
+    &__header {
+        background: #9e0b0f;
+        position: relative;
+        width: 100%;
+        height: 64px;
+        color: #fff;
+        display: flex;
+    }
+
+    &__header-tab {
+        font-size: 19px;
+        text-align: center;
+        padding: 0 31px 0 25px;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        line-height: 61px;
+        transition: all 0.3s ease;
+
+        &_active {
+            background: #fff;
+            color: #000;
+        }
+    }
+
+    &__close {
+        cursor: pointer;
+        position: absolute;
+        top: 22px;
+        right: 19px;
+        // background: transparent url($images-path + 'sprite.png') map_get($auth_close, position) no-repeat;
+        // width: map_get($auth_close, width);
+        // height: map_get($auth_close, height);
+    }
+
+    &__form {
+        width: 408px;
+        margin: 30px auto 0;
+        display: none;
+
+        &_active {
+            display: block;
+        }
+    }
+
+    &__input-wrap {
+        position: relative;
+        border: 2px solid #dddddd;
+        // border-top: none;
+        transition: 0.4s;
+
+        &_wrong{
+            border: 2px solid #9e0b0f!important;
+        }
+
+        i{
+            z-index: 1;
+            content: '';
+            position: absolute;
+            left: 13px;
+            top: 14px;
+            font-size: 19px;
+            color: #9b9b99;
+        }
+
+        // &:first-child {
+        //     border-top: 2px solid #dddddd;
+        //     border-radius: 6px 6px 0 0;
+        // }
+        //
+        // &:last-child {
+        //     border-radius: 0 0 6px 6px;
+        // }
+
+        // &_login {
+        //     &::before {
+        //         background-position: map_get($auth_login, position);
+        //         width: map_get($auth_login, width);
+        //         height: map_get($auth_login, height);
+        //     }
+        // }
+        //
+        // &_pass {
+        //     &::before {
+        //         background-position: map_get($auth_pass, position);
+        //         width: map_get($auth_pass, width);
+        //         height: map_get($auth_pass, height);
+        //     }
+        // }
+        //
+        // &_email {
+        //     &::before {
+        //         background-position: map_get($auth_mail, position);
+        //         width: map_get($auth_mail, width);
+        //         height: map_get($auth_mail, height);
+        //     }
+        // }
+    }
+
+    &__input {
+        color: #959595;
+        font-size: 14px;
+        width: 100%;
+        height: 46px;
+        padding: 0 23px 0 43px;
+        letter-spacing: 0.7px;
+        border: none;
+
+        &_submit {
+            color: #fff;
+            background: #9e0b0f;
+            border-radius: 6px;
+            border-right: none;
+            cursor: pointer;
+            margin: 20px 0 0;
+            padding: 0;
+            text-align: center;
+        }
+    }
+
+    &__row {
+        margin: 5px 0 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__link {
+        color: #959595;
+        font-size: 16px;
+        opacity: 0.8;
+        text-decoration: none !important;
+
+        &:hover {
+            color: #959595;
+        }
+    }
+}
+.social_login{
+	text-align:center;
+	margin-top:10px;
+	& .google{
+		margin-left:10px;	
+		cursor:pointer;	
+		display:none;
+	}
+	& .social{
+		vertical-align:super;
+		display:inline-block;
+	}
+	& .facebook{margin-left:5px;
+		cursor:pointer;
+		display:inline-block;
+		
+	}
+	& #g-signin2{
+		display:inline-block;
+		margin-left:10px;
+	}
+}

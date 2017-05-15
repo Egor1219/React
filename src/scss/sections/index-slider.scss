@@ -1,0 +1,45 @@
+.index-slider {
+    height: 658px;
+    z-index: 10;
+    position: relative;
+
+    &__slide {
+        position: relative;
+        height: 658px;
+        padding: 181px 0;
+        background-position: center!important;
+        background-repeat: no-repeat!important;
+        background-size: cover!important;
+    }
+    &__content{
+        height: 100%;
+        padding: 0 33px;
+        position: relative;
+        width: 1280px;
+        margin: 0 auto;
+    }
+    &__title {
+        position: relative;
+        color: #fff;
+        font-size: 76px;
+        letter-spacing: 1px;
+    }
+
+    &__text {
+        position: relative;
+        color: #fff;
+        font-size: 25px;
+        line-height: 30px;
+        width: 315px;
+        margin: 9px 0 0;
+        font-weight: 300;
+    }
+    &__overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,.4);
+    }
+}

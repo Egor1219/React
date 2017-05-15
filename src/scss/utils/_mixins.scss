@@ -1,0 +1,19 @@
+@mixin respond($point) {
+
+  $mobile: "(max-width: 980px)";
+  $small-monitor: "(max-width: 1399px)";
+
+  @if $point == small-monitor {
+    @media #{$small-monitor} { @content; }
+  }
+  @else if $point == mobile {
+    @media #{$mobile} { @content; }
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}

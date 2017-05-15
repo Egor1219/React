@@ -1,0 +1,531 @@
+.detail {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: -50px;
+    width: 534px;
+    height: 100%;
+    background: #fff;
+    pointer-events: all;
+    transition: width 0.5s ease;
+
+    &_opened {
+        display: block;
+    }
+
+    &__prop{
+        display: inline-block;
+        font-size: 16px;
+        padding-left: 0px;
+        margin: 17px 8px 0 14px;
+        width: 45%;
+        b{
+            display: inline-block;
+            width: 75px;
+            font-weight: 700;
+        }
+    }
+
+    &_fullscreen {
+        width: 100%;
+
+        .detail__info,
+        .detail__nav {
+            display: none;
+        }
+    }
+
+    &__topline {
+        display: flex;
+        justify-content: space-between;
+        margin: 7px 8px 10px 20px;
+        line-height: 23px;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+    }
+
+    &__price {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+    }
+
+    &__address {
+        font-size: 13px;
+        letter-spacing: 0.9px;
+        color: #949494;
+        margin: -2px 10px 0 20px;
+        height: 19px;
+    }
+
+    &__feature {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        padding-left: 23px;
+        color: #333;
+        font-size: 16px;
+        height: 16px;
+        line-height: 16px;
+        margin: 15px 19px 0px 0;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 18px;
+            box-sizing: border-box;
+            background: url("../i/origin/checkbox.png") no-repeat center;
+            background-size: cover!important;
+        }
+    }
+
+    &__content-wrap {
+        display: flex;
+        margin: 7px 0 0;
+        position: relative;
+        height: 266px;
+        transition: all 0.5s ease;
+
+        .owl-carousel {
+            width: 534px;
+            height: 266px;
+        }
+
+        &_fullscreen {
+            height: calc(100% - (37px + 30px + 19px + 7px + 5px)); // 100% - (height of (controls + detail__topline + detail__address) + margin-top of this + random number of pxs)
+
+            .owl-carousel {
+                width: 1280px;
+                height: calc(100% - (37px + 30px + 19px + 7px + 5px));
+            }
+        }
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        transition: all 0.5s ease;
+    }
+
+    &__content-tab {
+        width: 100%;
+        height: 100%;
+
+        .owl-pagination {
+            display: none;
+        }
+    }
+
+    &__image {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s ease;
+    }
+
+    &__nav {
+        width: 534px;
+        height: 34px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        // bottom: 0;
+        position: relative;
+        background: #9e0b0f;
+        transition: all 0.5s ease;
+        padding: 0 5px;
+        z-index: 1;
+        opacity: 1;
+
+        &_fullscreen {
+            opacity: 0;
+            pointer-events: none;
+            //left: 50%;
+            //transform: translate(-50%, 0);
+        }
+    }
+
+    &__nav-item {
+        cursor: pointer;
+        height: 30px;
+        width: 100px;
+        background: #b13c3f;
+        text-align: center;
+        text-decoration: none !important;
+        border-radius: 5px 5px 0 0;
+        font-size: 13px;
+        color: #fff !important;
+        line-height: 29px;
+
+        &_active {
+            height: 38px;
+            line-height: 40px;
+            background: #fff;
+            color: #000 !important;
+        }
+    }
+
+    &__views {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: 24px 0 0;
+        padding: 0 46px 0 0;
+
+        &_fullscreen {
+            position: absolute;
+            left: 50%;
+            top: 58px;
+            margin: 0;
+            padding: 0;
+            transform: translate(-50%, 0);
+        }
+    }
+
+    &__icons {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 40px;
+        background: #fff;
+        transition: all 0.5s ease;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+
+        &_opened {
+            display: flex;
+        }
+
+        &_fullscreen {
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    }
+
+    &__ico {
+        cursor: pointer;
+        background: transparent url($images-path + 'sprite.png') 0 0 no-repeat;
+
+        &_mail {
+            background-position: map_get($detail_mail_ico, position);
+            width: map_get($detail_mail_ico, width);
+            height: map_get($detail_mail_ico, height);
+            margin: 8px 0 0;
+        }
+
+        &_heart {
+            background-position: map_get($heart_ico, position);
+            width: map_get($heart_ico, width);
+            height: map_get($heart_ico, height);
+            margin: 15px 0 0 1px;
+        }
+
+        &_share {
+            background-position: map_get($share_ico, position);
+            width: map_get($share_ico, width);
+            height: map_get($share_ico, height);
+            margin: 11px 0 0;
+        }
+
+        &_print {
+            background-position: map_get($print_ico, position);
+            width: map_get($print_ico, width);
+            height: map_get($print_ico, height);
+            margin: 12px 0 0;
+        }
+
+        &_bell {
+            background-position: map_get($bell_ico, position);
+            width: map_get($bell_ico, width);
+            height: map_get($bell_ico, height);
+            margin: 12px 0 0 1px;
+        }
+
+        &_calc {
+            background-position: map_get($calc_ico, position);
+            width: map_get($calc_ico, width);
+            height: map_get($calc_ico, height);
+            margin: 9px 0 0;
+        }
+
+        &_pencil {
+            background-position: map_get($pencil_ico, position);
+            width: map_get($pencil_ico, width);
+            height: map_get($pencil_ico, height);
+            margin: 15px 0 0;
+        }
+
+        &_waste {
+            background-position: map_get($waste_ico, position);
+            width: map_get($waste_ico, width);
+            height: map_get($waste_ico, height);
+            margin: 15px 0 8px;
+        }
+
+        &_map-view {
+            background-position: map_get($detail_map_view_active, position);
+            width: map_get($detail_map_view_active, width);
+            height: map_get($detail_map_view_active, height);
+            margin: 0 14px 0 0;
+            opacity: 0.5;
+        }
+
+        &_video {
+            background-position: map_get($detail_video_active, position);
+            width: map_get($detail_video_active, width);
+            height: map_get($detail_video_active, height);
+            margin: 0 14px 0 0;
+            opacity: 0.5;
+        }
+
+        &_images {
+            background-position: map_get($detail_image_active, position);
+            width: map_get($detail_image_active, width);
+            height: map_get($detail_image_active, height);
+            margin: -4px 14px 0 0;
+            opacity: 0.5;
+        }
+
+        &_360 {
+            background-position: map_get($detail_360_active, position);
+            width: map_get($detail_360_active, width);
+            height: map_get($detail_360_active, height);
+            margin: 0 14px 0 0;
+            opacity: 0.5;
+        }
+
+        &_street {
+            background-position: map_get($detail_streetview_active, position);
+            width: map_get($detail_streetview_active, width);
+            height: map_get($detail_streetview_active, height);
+            margin: 0;
+            opacity: 0.5;
+        }
+
+        &_dots {
+            position: absolute;
+            top: -22px;
+            right: 7px;
+            background-position: map_get($detail_dots, position);
+            width: map_get($detail_dots, width);
+            height: map_get($detail_dots, height);
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        &_aerial {
+            width: 23px;
+            height: 23px;
+            display: inline-block;
+            margin-right: 14px;
+            background-size: contain!important;
+            background: url(../i/origin/aerial.png) no-repeat center;
+            opacity: 0.5;
+            margin-top: -4px;
+        }
+
+        &_active {
+            opacity: 1;
+        }
+
+        &_dots-fullscreen {
+            top: 14px;
+        }
+    }
+
+    &__info {
+        padding: 15px 20px;
+        overflow: hidden;
+        max-height: 214px;
+        transition: all 0.5s ease;
+
+        &_fullscreen {
+            display: none;
+        }
+    }
+
+    &__tab {
+        display: none;
+        color: #000;
+        font-size: 14px;
+        line-height: 18px;
+        line-height: 16px;
+
+        &:first-child {
+            display: block;
+        }
+    }
+
+    &__contact-input {
+        width: 233px;
+        height: 34px;
+        display: inline-block;
+        font-size: 14px;
+        color: #929292;
+        background: none;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        margin: 10px 0 0;
+        padding: 0 0 0 15px;
+        @include placeholder() {
+            opacity: 1;
+            color: #929292;
+        }
+
+        &:first-child {
+            margin: 10px 13px 0 5px;
+        }
+    }
+
+    &__contact-textarea {
+        @extend .detail__contact-input;
+        resize: none;
+        width: 482px;
+        height: 91px;
+        margin: 17px 0 0 5px;
+        padding: 8px 0 0 15px;
+    }
+
+    &__contact-submit {
+        background: #9e0b0f;
+        color: #fff;
+        text-align: center;
+        margin: 5px 7px 0 0;
+        width: 175px;
+        font-size: 14px;
+        border-radius: 4px;
+        height: 34px;
+        line-height: 36px;
+        border: none;
+        cursor: pointer;
+        float: right;
+    }
+
+    .owl-carousel {
+        height: 100%;
+    }
+
+    .owl-theme .owl-controls {
+        margin-top: 0;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 32px;
+        transform: translate(0, -50%);
+    }
+
+    .owl-theme .owl-controls .owl-buttons div {
+        background: transparent url($images-path + 'sprite.png') map_get($owl_arrow, position) no-repeat;
+        width: map_get($owl_arrow, width);
+        height: map_get($owl_arrow, height);
+        position: absolute;
+        opacity: 1;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+    }
+
+    .owl-prev {
+        left: 14px;
+        top: 4px;
+    }
+
+    .owl-next {
+        transform: rotate(180deg);
+        right: 16px;
+        top: 4px;
+    }
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #979797;
+    font-size: 14px;
+    color: #000;
+    letter-spacing: 1px;
+    width: 100%;
+    height: 37px;
+
+    &__back {
+        display: block;
+        height: 37px;
+        line-height: 38px;
+        margin: 0 0 0 8px;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            top: 11    px;
+            background: transparent url($images-path + 'sprite.png') map_get($controls_arrow, position) no-repeat;
+            width: map_get($controls_arrow, width);
+            height: map_get($controls_arrow, height);
+            margin: 11px 9px 0 0;
+        }
+    }
+
+    &__size {
+        margin: 1px 5px 0 104px;
+        cursor: pointer;
+        background: transparent url($images-path + 'sprite.png') map_get($screen_ico, position) no-repeat;
+        width: map_get($screen_ico, width);
+        height: map_get($screen_ico, height);
+    }
+
+    &__arrows{
+        display: block;
+        height: 37px;
+        line-height: 38px;
+        padding: 0 18px 0px 19px;
+        position: relative;
+    }
+
+    &__arrow {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        background: transparent url($images-path + 'sprite.png') map_get($controls_arrow, position) no-repeat;
+        width: map_get($controls_arrow, width);
+        height: map_get($controls_arrow, height);
+        position: absolute;
+        top: 50%;
+        margin-top: -7px;
+        left: 0px;
+
+        &_next {
+            transform: rotate(180deg);
+            right: 0px;
+            left: auto;
+        }
+    }
+}
+
+#panorama, #aerial {
+    width: 100%;
+    height: 100%;
+}
+
+#small-map {
+    width: 100%;
+    height: 100%;
+    border-left: 4px solid #fff;
+    border-right: 4px solid #fff;
+}

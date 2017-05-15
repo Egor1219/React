@@ -1,0 +1,51 @@
+.x-scrollbar{
+    position: relative;
+    overflow: hidden;
+    touch-action: auto;
+    height: 100%;
+    width: 100%;
+    &_mobile{
+        overflow: auto;
+    }
+    &__body{
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    &__rail{
+        width: 12px;
+        height: 100%;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        background: transparent;
+        transition: 0.3s;
+        touch-action: auto;
+        &:hover{
+            width: 16px;
+        }
+        &_hidden{
+            display: none;
+        }
+    }
+    &:hover &__rail{
+        background: #d6d6d6;
+    }
+    &__scroll{
+        width: calc(100% - 4px);
+        height: 20px;
+        background: #999;
+        position: absolute;
+        left: 2px;
+        top: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: width background 0.3s;
+    touch-action: auto;
+
+    }
+    &:hover &__scroll{
+        background: #666;
+    }
+}

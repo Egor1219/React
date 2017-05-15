@@ -1,0 +1,59 @@
+.find-listing-wrap {
+    position: relative;
+    background-size: cover;
+    height: 658px;
+    background: #000;
+}
+
+.find-listing-content {
+    height: 100%;
+    padding: 0 33px 0;
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.find-listing-slider {
+    height: 658px;
+    z-index: 10;
+    position: relative;
+}
+
+.find-listing-slide {
+    position: relative;
+    height: 658px;
+    padding: 181px 0;
+    background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    z-index: 4;
+    &__title {
+        position: relative;
+        color: #fff;
+        font-size: 76px;
+        letter-spacing: 1px;
+        z-index: 5;
+    }
+
+    &__text {
+        position: relative;
+        color: #fff;
+        font-size: 25px;
+        line-height: 30px;
+        width: 315px;
+        margin: 9px 0 0;
+        font-weight: 300;
+        z-index: 5;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,.4);
+        z-index: 2;
+    }
+}

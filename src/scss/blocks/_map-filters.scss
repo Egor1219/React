@@ -1,0 +1,369 @@
+.filter {
+    cursor: default;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.8);
+    transition: 0.3s all ease;
+
+    &_opened {
+        display: flex;
+    }
+}
+
+.visibility {
+    width: 201px;
+    height: 132px;
+
+    &__item {
+        position: relative;
+        height: 34px;
+        transition: background 0.3s ease;
+        user-select: none;
+        padding: 7px 0 0 54px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background: transparent url($images-path + 'sprite.png') 0 0 no-repeat;
+            left: 14px;
+            top: 11px;
+        }
+
+        &_map {
+            &::before {
+                background-position: map_get($map-view, position);
+                width: map_get($map-view, width);
+                height: map_get($map-view, height);
+                left: 14px;
+                top: 9px;
+            }
+        }
+
+        &_list {
+            &::before {
+                background-position: map_get($list-view, position);
+                width: map_get($list-view, width);
+                height: map_get($list-view, height);
+                left: 17px;
+                top: 10px;
+            }
+        }
+
+        &_grid {
+            &::before {
+                background-position: map_get($grid-view, position);
+                width: map_get($grid-view, width);
+                height: map_get($grid-view, height);
+                left: 17px;
+                top: 7px;
+            }
+        }
+
+        &_list-map {
+            &::before {
+                background-position: map_get($list-map-view, position);
+                width: map_get($list-map-view, width);
+                height: map_get($list-map-view, height);
+                left: 15px;
+                top: 9px;
+            }
+        }
+
+        &_active {
+            background: #ffcd00;
+        }
+
+        &:hover {
+            background: #FFCD00;
+        }
+    }
+}
+
+.sort {
+    width: 200px;
+    padding: 10px 0px;
+    &__item {
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 1px;
+        padding: 7px 20px;
+        white-space: nowrap;
+
+        &:hover {
+            font-weight: 700;
+        }
+
+        &__selected {
+            font-weight: 700;
+        }
+    }
+}
+
+.prop {
+    width: 246px;
+    padding: 2px 12px 12px;
+
+    &__label {
+        font-size: 12px;
+        font-weight: 700;
+        color: #000;
+        letter-spacing: 0.85px;
+    }
+
+    &__values {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #000;
+        letter-spacing: 0.85px;
+        margin: 20px 5px 0px;
+    }
+
+    &__price-slider {
+        position: relative;
+        margin: 11px 0 0;
+
+        &.noUi-target {
+            top: 0;
+        }
+    }
+
+    &__bedrooms {
+        margin: 20px 0 0;
+    }
+
+    &__bathrooms {
+        margin: 2px 0 0;
+    }
+
+    &__areas {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0 0;
+        padding: 0 2px 0 0;
+    }
+
+    &__area {
+        width: 98px;
+        text-align: left;
+    }
+
+    &__text-input {
+        width: 100%;
+        height: 27px;
+        color: #999;
+        border: 1px solid #ccc;
+        background: #fff;
+        border-radius: 4px;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        white-space: nowrap;
+        margin: 8px 0 0;
+    }
+
+    &__city {
+        margin: 6px 0 0;
+
+        .btn {
+            margin: 8px 0 0;
+            height: 27px;
+            padding: 2px 12px;
+        }
+    }
+
+    &__button {
+        background: #9e0b0f;
+        color: #fff;
+        text-align: center;
+        margin: 16px auto 0;
+        width: 100%;
+        font-size: 14px;
+        border-radius: 4px;
+        height: 30px;
+        line-height: 30px;
+        cursor: pointer;
+    }
+}
+
+.box {
+    min-width: 201px;
+
+    &__search {
+        position: relative;
+        margin: 5px 0 0 4px;
+    }
+
+    &__search-input {
+        display: inline-block;
+        vertical-align: top;
+        width: 168px;
+        height: 21px;
+        border-radius: 20px;
+        background: #d8d8d8;
+        color: #000;
+        font-size: 10px;
+        border: none;
+        padding: 1px 10px 0 32px;
+        letter-spacing: 0.8px;
+    }
+
+    &__search-ico {
+        position: absolute;
+        left: 9px;
+        top: 6px;
+        background: transparent url($images-path + 'sprite.png') map_get($small_search_ico, position) no-repeat;
+        width: map_get($small_search_ico, width);
+        height: map_get($small_search_ico, height);
+    }
+
+    &__plus {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        width: 19px;
+        height: 19px;
+        margin: 1px 0 0 3px;
+        border-radius: 100%;
+        background: #000;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 7px;
+            height: 1px;
+            background: #FFCD00;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+            width: 7px;
+            height: 1px;
+            background: #FFCD00;
+        }
+    }
+
+    &__list {
+        margin: 10px 0 0;
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        height: 28px;
+        cursor: pointer;
+        background: #fff;
+        font-size: 14px;
+        color: #000;
+        letter-spacing: 1px;
+        padding: 3px 0 0 11px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #FFCD00;
+
+            .box__garbage {
+                display: block;
+            }
+        }
+    }
+
+    &__garbage {
+        display: none;
+        position: absolute;
+        right: 6px;
+        top: 8px;
+        background: transparent url($images-path + 'sprite.png') map_get($garbage, position) no-repeat;
+        width: map_get($garbage, width);
+        height: map_get($garbage, height);
+    }
+}
+
+.heart {
+    min-width: 201px;
+
+    &__search {
+        position: relative;
+        margin: 6px 0 0 12px;
+    }
+
+    &__search-input {
+        display: inline-block;
+        vertical-align: top;
+        width: 179px;
+        height: 21px;
+        border-radius: 20px;
+        background: #d8d8d8;
+        color: #000;
+        font-size: 10px;
+        border: none;
+        padding: 1px 10px 0 32px;
+        letter-spacing: 0.8px;
+    }
+
+    &__list {
+        margin: 10px 0 0;
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        height: 28px;
+        cursor: pointer;
+        background: #fff;
+        font-size: 14px;
+        color: #000;
+        letter-spacing: 1px;
+        padding: 0px 0 0 37px;
+        line-height: 28px;
+        transition: all 0.3s ease;
+
+        &::before {
+            content: attr(data-count);
+            position: absolute;
+            left: 4px;
+            top: 3px;
+            background: #000;
+            width: 23px;
+            height: 23px;
+            border-radius: 100%;
+            font-size: 12px;
+            color: #fff;
+            letter-spacing: 0.7px;
+            text-align: center;
+            line-height: 24px;
+        }
+
+        &:hover {
+            background: #FFCD00;
+
+            .heart__garbage {
+                display: block;
+            }
+        }
+    }
+
+    &__garbage {
+        display: none;
+        position: absolute;
+        right: 6px;
+        top: 8px;
+        background: transparent url($images-path + 'sprite.png') map_get($garbage, position) no-repeat;
+        width: map_get($garbage, width);
+        height: map_get($garbage, height);
+    }
+}

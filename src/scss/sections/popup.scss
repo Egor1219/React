@@ -1,0 +1,88 @@
+.popup {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index: 200;
+    padding: 18px 39px 22px 39px;
+
+    &__close {
+        cursor: pointer;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        // background: transparent url($images-path + 'sprite.png') map_get($popup_close, position) no-repeat;
+        // width: map_get($popup_close, width);
+        // height: map_get($popup_close, height);
+    }
+
+    &__title {
+        font-size: 18px;
+        color: #000;
+        letter-spacing: 1px;
+    }
+
+    &__input {
+        height: 34px;
+        width: 360px;
+        background: none;
+        font-size: 14px;
+        color: #000;
+        letter-spacing: 1px;
+        border: 2px solid #D2D2D2;
+        padding: 0 9px 3px 11px;
+        margin: 10px 0 0;
+    }
+
+    &__textarea {
+        height: 100px;
+        width: 360px;
+        background: none;
+        font-size: 14px;
+        color: #000;
+        letter-spacing: 1px;
+        border: 2px solid #D2D2D2;
+        padding: 0 9px 3px 11px;
+        margin: 10px 0 0;
+        resize: none;
+    }
+
+    &__buttons {
+        width: 242px;
+        height: 34px;
+        margin: 30px auto 0px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__add-button {
+        cursor: pointer;
+        width: 105px;
+        height: 34px;
+        background: #FFCD00;
+        color: #000;
+        font-size: 12px;
+        letter-spacing: 0.85px;
+        text-align: center;
+        border: none;
+    }
+
+    &__cancel-button {
+        cursor: pointer;
+        width: 105px;
+        color: #000;
+        font-size: 12px;
+        letter-spacing: 0.85px;
+        text-align: center;
+        margin: 0 0 0 16px;
+    }
+}
+
+.popup_favorite_add{
+    width: 438px;
+    .popup__title{
+        margin-bottom: 10px;
+    }
+}
